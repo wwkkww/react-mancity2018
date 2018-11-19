@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { matchesData } from '../../../firebase';
+import { matchesDB } from '../../../firebase';
 import { FirebaseLooper, reverseArray } from '../../ui/FirebaseLooper';
 import MatchBlock from '../../ui/MatchBlock';
 import Slide from 'react-reveal/Slide';
@@ -12,7 +12,7 @@ class Blocks extends Component {
     };
 
     componentDidMount() {
-        matchesData.limitToLast(6).once('value').then((snapshot)=> {
+        matchesDB.limitToLast(6).once('value').then((snapshot)=> {
             const matches = FirebaseLooper(snapshot);
             this.setState({
                 matches: reverseArray(matches)

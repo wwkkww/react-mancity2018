@@ -3,6 +3,8 @@ import Fade from 'react-reveal/Fade';
 import FormFields from '../../ui/FormFields';
 import {Validate} from '../../ui/Validate';
 
+import { promotionsDB } from '../../../firebase';
+
 class Enroll extends Component {
     state= {
         formError: false,
@@ -37,8 +39,17 @@ class Enroll extends Component {
         }
 
         if(validForm){
-            console.log(dataSubmit);
-            this.resetFormSuccess();
+            // console.log('dataSubmit', dataSubmit['email']);
+            promotionsDB.orderByChild('email').equalTo(dataSubmit.email).once("value")
+            .then((snapshot)=> {
+                if (snapshot.val() === null) {
+                    promotionsDB.push(dataSubmit);
+                    this.resetFormSuccess(true)
+                } else {
+                    this.resetFormSuccess(false)
+                }
+            })
+
         } else {
             this.setState({
                 formError: true
@@ -65,7 +76,7 @@ class Enroll extends Component {
         })
     };
 
-    resetFormSuccess(){
+    resetFormSuccess(bool){
         const newFormData = {...this.state.formData};
 
         for (let key in newFormData) {
@@ -74,10 +85,11 @@ class Enroll extends Component {
             newFormData[key].validationMessage = '';
         };
 
+
         this.setState({
             formError: false,
             forData: newFormData,
-            formSuccess: "Thank you for enroll"
+            formSuccess:  bool? "Thank you for enroll" : "This email already enroll"
         });
         this.clearSuccessMessage();
     };
@@ -109,6 +121,9 @@ class Enroll extends Component {
                             }
                             <div className="success_label">{this.state.formSuccess}</div>
                             <button onClick={(e)=>this.submitForm(e)}>Enroll</button>
+                            <div className="enroll_discl">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint atque nesciunt amet corporis? Explicabo!
+                            </div>
                         </div>
                     </form>
                 </div>

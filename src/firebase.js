@@ -13,8 +13,9 @@ import 'firebase/database';
 
   firebase.initializeApp(config);
 
-  const database = firebase.database();
+  const firebaseDB = firebase.database();
+  const matchesDB = firebaseDB.ref('matches');
+  const promotionsDB = firebaseDB.ref('promotions');
 
-  const matchesData = database.ref('matches');
 
-  export { firebase, matchesData, database as default };
+  export { firebase, matchesDB, promotionsDB, firebaseDB as default };
