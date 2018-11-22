@@ -31,7 +31,6 @@ class Players extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <DashboardLayout>
                 <div>
@@ -50,12 +49,12 @@ class Players extends Component {
                                         this.state.players.map((player, i)=>(
                                             <TableRow key={i}>
                                                 <TableCell>
-                                                    <Link to={`/players/addplayers/${player.id}`}>
+                                                    <Link to={`/players/addplayer/${player.id}`}>
                                                         {player.name}
                                                     </Link>
                                                 </TableCell>
                                                 <TableCell>
-                                                    <Link to={`/players/addplayers/${player.id}`}>
+                                                    <Link to={`/players/addplayer/${player.id}`}>
                                                         {player.lastname}
                                                     </Link>
                                                 </TableCell>

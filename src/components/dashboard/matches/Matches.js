@@ -68,13 +68,9 @@ class Matches extends Component {
                                                 </TableCell>
                                             </TableRow>
                                         )) : ''
-
                                 }
-
                             </TableBody>
-
                         </Table>
-
                     </Paper>
                     <div className="admin_progress">
                         {

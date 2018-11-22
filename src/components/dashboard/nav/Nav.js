@@ -7,8 +7,11 @@ const Nav = () => {
 
     const links = [
         {
-            title: 'Matches',
+            title: 'Match Result',
             linkTo: '/matches'
+        }, {
+            title: 'Fixture',
+            linkTo: '/thematches'
         }, {
             title: 'Add Match',
             linkTo: '/matches/editmatch'

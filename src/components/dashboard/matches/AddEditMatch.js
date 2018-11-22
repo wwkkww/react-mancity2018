@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DashboardLayout from '../../../hoc/DashboardLayout';
 import FormFields from '../../ui/FormFields';
 import { Validate } from '../../ui/Validate';
-import firebaseDB, { matchDB, teamsDB, matchesDB } from '../../../firebase';
+import firebaseDB, { teamsDB, matchesDB } from '../../../firebase';
 import { FirebaseLooper } from '../../ui/FirebaseLooper';
 
 class AddEditMatch extends Component {
