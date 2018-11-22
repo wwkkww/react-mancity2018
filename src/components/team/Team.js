@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PlayerCard from '../ui/PlayerCard';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Fade from 'react-reveal/Fade';
 import Stripes from '../../resources/images/stripes.png';
 import {playersDB , firebase } from '../../firebase';
@@ -58,7 +58,7 @@ class Team extends Component {
     );
 
     render() {
-        console.log(this.state.players);
+        // console.log(this.state.players);
         return (
             <div className="the_team_container"
                 style={{
@@ -96,7 +96,7 @@ class Team extends Component {
                         </div>
 
                     </div>
-                    : null
+                    : <CircularProgress thickness={8} style={{ color: '#98c5e9', marginTop: '100px', marginLeft: '600px', marginBottom: '100px' }} />
                 }
             </div>
         );

@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { easePolyOut } from 'd3-ease';
 import Animate from 'react-move/Animate';
 import PlayerCard from '../../ui/PlayerCard';
-import Otamendi from '../../../resources/images/players/Otamendi.png';
+import Aguero from '../../../resources/images/players/aguero.png';
+import Bernado from '../../../resources/images/players/bernado.png';
+import Kevin from '../../../resources/images/players/kevin.png';
+import Silva from '../../../resources/images/players/silva.png';
 
 class Cards extends Component {
     state = {
@@ -20,6 +23,29 @@ class Cards extends Component {
                 bottom: 0,
                 left: 0
             }
+        ], 
+        players: [
+            {
+                name: 'David',
+                lastname: 'Silva',
+                number: 21,
+                bck: Silva
+            }, {
+                name: 'Bernado',
+                lastname: 'Silva',
+                number: 20,
+                bck: Bernado
+            }, {
+                name: 'Kevin',
+                lastname: 'De Bruyne',
+                number: 17,
+                bck: Kevin
+            }, {
+                name: 'Sergio',
+                lastname: 'Aguero',
+                number: 10,
+                bck: Aguero
+            }
         ]
     };
 
@@ -35,10 +61,11 @@ class Cards extends Component {
                 enter={{
                     left:[card.left],
                     bottom:[card.bottom],
-                    timing:{duration: 600, ease:easePolyOut}
+                    timing:{duration: 600, delay:500, ease:easePolyOut}
                 }}
             >
                 {(card)=> {
+                    console.log('card', card);
                     return (
                         <div
                             style={{
@@ -48,10 +75,10 @@ class Cards extends Component {
                             }}
                         >
                             <PlayerCard 
-                                number="99"
-                                name="Nicholas"
-                                lastname="Otamendi"
-                                bck={Otamendi}
+                                number={this.state.players[i].number}
+                                name={this.state.players[i].name}
+                                lastname={this.state.players[i].lastname}
+                                bck={this.state.players[i].bck}
                             />
                         </div>
                     )

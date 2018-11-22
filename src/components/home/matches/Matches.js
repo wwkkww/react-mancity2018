@@ -27,7 +27,7 @@ const Matches = () => {
                     size="25px"
                     color="#0e1731"
                     link={true}
-                    linkTo="/team"
+                    linkTo="/matches"
                     add={{
                         padding: '5px 10px',
                         display: 'inline-block',

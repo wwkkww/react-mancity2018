@@ -23,7 +23,7 @@ class TheMatches extends Component {
                 filterMatches: reverseArray(matches)
             })
         })
-    };
+    }; 
 
     showPlayed = (played) => {
         const list = this.state.matches.filter((match) => {
